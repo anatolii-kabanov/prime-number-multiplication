@@ -15,13 +15,15 @@ namespace Avast.PrimeNumber.Builders
 
         public string[,] MultiplicationGrid(int[] numbers)
         {
+            if (numbers == null) throw new ArgumentNullException(nameof(numbers));
+
             var resultGrid = new string[numbers.Length, numbers.Length];
 
             Parallel.For(0, numbers.Length, (i) => {
                 _logger.LogDebug($"Multiplication of {numbers[i]}");
                 for(var j = i; j < numbers.Length; j++)
                 {
-                    var multiplyResult = $"{numbers[i] * numbers[j]}"; // should be checked to overflow 
+                    var multiplyResult = $"{(long)numbers[i] * numbers[j]}"; // should be checked to overflow 
                     resultGrid[i, j] = multiplyResult;
                     resultGrid[j, i] = multiplyResult;
                 }
@@ -29,5 +31,6 @@ namespace Avast.PrimeNumber.Builders
 
             return resultGrid;
         }
+
     }
 }

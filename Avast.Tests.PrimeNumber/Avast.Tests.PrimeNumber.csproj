@@ -25,11 +25,13 @@
     <None Remove="Services\" />
     <None Remove="Generators\" />
     <None Remove="Checkers\" />
+    <None Remove="Builders\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Generators\" />
     <Folder Include="Checkers\" />
+    <Folder Include="Builders\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Avast.PrimeNumber\Avast.PrimeNumber.csproj" />
